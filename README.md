@@ -22,6 +22,30 @@
     npm install nodemon -D
 ```
 
+Data Reference - https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/
+
+#### This is an example of the aggregation pipeline syntax:
+    pipeline = [
+            { $match : { … } },
+            { $group : { … } },
+            { $sort : { … } }
+        ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Start working with Existing Project
 
@@ -45,3 +69,5 @@
 ```'sh
     npm start
 ```
+
+
