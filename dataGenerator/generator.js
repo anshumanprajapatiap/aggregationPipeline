@@ -1,14 +1,14 @@
-const university = require('../model/university'); 
-const course = require('../model/course'); 
+const University = require('../model/university'); 
+const Course = require('../model/course'); 
 const coursesData = require('./coursesData');
 const universitiesData = require('./universityData');
 
 const cleanUpFunction = async () =>{
     // Delete all universities
-    const universityCleanupResult = await university.deleteMany({});
+    const universityCleanupResult = await University.deleteMany({});
 
     // Delete all courses
-    const courseCleanupResult = await course.deleteMany({});
+    const courseCleanupResult = await Course.deleteMany({});
 
 
       return {
@@ -23,8 +23,8 @@ const generatonFunction = async () =>{
   try {
     // Combine insertion operations
     const [universities, courses] = await Promise.all([
-        university.insertMany(universitiesData),
-        course.insertMany(coursesData)
+        University.insertMany(universitiesData),
+        Course.insertMany(coursesData)
     ]);
     // Return the number of rows added for universities and courses
     return {
