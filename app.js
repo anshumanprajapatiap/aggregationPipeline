@@ -5,6 +5,7 @@ const express = require('express');
 // Import required modules
 const connectDB = require('./db/connect');
 const dummyData = require('./routes/dummyData');
+const aggregationRoute = require('./routes/aggregationRoute');
 
 // Create an Express application
 const app = express();
@@ -29,7 +30,7 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/api/generator', dummyData);
-
+app.use('/api/aggregation', aggregationRoute);
 
 
 const start = async () => {
