@@ -24,6 +24,17 @@
 
 Data Reference - https://studio3t.com/knowledge-base/articles/mongodb-aggregation-framework/
 
+#### Set Up env
+dbName = <database_name>
+dbHost = <host_name>
+password = <password>
+method = <mongodb+srv>
+projectName = <project_Name>
+instanceName = <instance_id.mongodb.net>
+PORT = 5001
+
+
+
 #### This is an example of the aggregation pipeline syntax:
     pipeline = [
             { $match : { … } },
