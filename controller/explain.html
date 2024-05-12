@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aggregation Pipeline and Explanation</title>
+<style>
+  .pipeline-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .pipeline-stage {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .pipeline-stage p {
+    margin: 0;
+  }
+  .explanation-container {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .explanation {
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="pipeline-container">
+    <h2>Aggregation Pipeline</h2>
+    <div class="pipeline-stage">
+      <p><strong>Stage 1:</strong> $match</p>
+      <p><strong>Query:</strong> { "name": "USAL" }</p>
+    </div>
+    <div class="pipeline-stage">
+      <p><strong>Stage 2:</strong> $unwind</p>
+      <p><strong>Path:</strong> $students</p>
+    </div>
+    <div class="pipeline-stage">
+      <p><strong>Stage 3:</strong> $project</p>
+      <p><strong>Projection:</strong> { "students.year": 1, "students.number": 1 }</p>
+    </div>
+    <div class="pipeline-stage">
+      <p><strong>Stage 4:</strong> $sort</p>
+      <p><strong>Sort Key:</strong> students.number</p>
+    </div>
+  </div>
+  <div class="explanation-container">
+    <h2>Execution Explanation</h2>
+    <p class="explanation">Execution Success: true</p>
+    <p class="explanation">Total Docs Examined: 2</p>
+    <!-- Add more explanation details as needed -->
+  </div>
+</body>
+</html>

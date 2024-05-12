@@ -36,7 +36,7 @@ app.use('/api/aggregation', aggregationRoute);
 const start = async () => {
 
   try{
-      const connectingString = `${process.env.method}://${process.env.dbHost}:${process.env.password}@${process.env.projectName}.${process.env.instanceName}/${process.env.dbName}?retryWrites=true&w=majority`;
+      const connectingString = `${process.env.method}://${process.env.dbHost}:${process.env.password}@${process.env.projectName}.${process.env.instanceName}/${process.env.dbName}`;
       console.log(`CONNECTING TO DATABASE`);
       await connectDB(connectingString);
       app.listen(port, ()=>{

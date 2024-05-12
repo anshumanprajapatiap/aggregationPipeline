@@ -43,7 +43,16 @@ PORT = 5001
         ]
 
 
-
+### POST - /api/aggregation/customAggregation
+    req:->
+        {
+            pipeline:[
+                { $match : { name : 'USAL' } },
+        { $unwind : '$students' },
+        { $project : { _id : 0, 'students.year' : 1, 'students.number' : 1 } },
+        { $sort : { 'students.number' : -1 } }
+            ]
+        }
 
 
 
