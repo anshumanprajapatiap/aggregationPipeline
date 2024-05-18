@@ -1,0 +1,5 @@
+[
+  "aggregationpipeline/app",
+  "aggregationpipeline/db/connect",
+  "aggregationpipeline/mongodb/universities"
+]

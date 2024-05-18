@@ -1,0 +1,56 @@
+[
+  {
+    "name": "aggregationpipeline",
+    "type": "package",
+    "children": [
+      {
+        "name": "db",
+        "type": "package",
+        "children": [
+          {
+            "type": "class",
+            "name": "connect",
+            "children": [
+              {
+                "type": "function",
+                "name": "connectDB",
+                "static": true,
+                "location": "db/connect.js:4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "mongodb",
+        "type": "package",
+        "children": [
+          {
+            "type": "class",
+            "name": "universities",
+            "children": [
+              {
+                "type": "function",
+                "name": "createIndex",
+                "static": false,
+                "location": "mongodb/universities:1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "class",
+        "name": "app",
+        "children": [
+          {
+            "type": "function",
+            "name": "start",
+            "static": true,
+            "location": "app.js:36"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,183 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "id": 1,
+      "thread_id": 0,
+      "method_id": "start",
+      "static": true,
+      "defined_class": "app",
+      "path": "app.js",
+      "lineno": 36
+    },
+    {
+      "event": "call",
+      "id": 2,
+      "thread_id": 0,
+      "method_id": "connectDB",
+      "static": true,
+      "parameters": [
+        {
+          "class": "String",
+          "value": "'mongodb+srv://anshumanprajapati:anshuman-prajapati-0509@node-express.ik7tngd.mongodb.net/aggregationPipeline'",
+          "name": "url"
+        }
+      ],
+      "defined_class": "connect",
+      "path": "db/connect.js",
+      "lineno": 4
+    },
+    {
+      "event": "return",
+      "thread_id": 0,
+      "id": 3,
+      "parent_id": 2,
+      "return_value": {
+        "class": "Promise<undefined>",
+        "value": "Promise { undefined }",
+        "object_id": 1
+      },
+      "elapsed": 0.47601024999949004
+    },
+    {
+      "event": "return",
+      "thread_id": 0,
+      "id": 4,
+      "parent_id": 1,
+      "return_value": {
+        "class": "Promise<undefined>",
+        "value": "Promise { undefined }",
+        "object_id": 2
+      },
+      "elapsed": 0.47916554099992936
+    },
+    {
+      "event": "call",
+      "id": 5,
+      "thread_id": 0,
+      "method_id": "createIndex",
+      "static": false,
+      "receiver": {
+        "class": "Collection",
+        "value": "[Collection universities]",
+        "object_id": 3
+      },
+      "parameters": [
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "location.coordinates",
+              "class": "String"
+            }
+          ],
+          "value": "{ 'location.coordinates': '2dsphere' }",
+          "object_id": 4,
+          "name": "indexSpec"
+        },
+        {
+          "class": "Object",
+          "properties": [
+            {
+              "name": "background",
+              "class": "Boolean"
+            }
+          ],
+          "value": "{ background: true }",
+          "object_id": 5,
+          "name": "options"
+        }
+      ],
+      "defined_class": "universities",
+      "lineno": 1,
+      "path": "mongodb/universities"
+    },
+    {
+      "event": "return",
+      "thread_id": 0,
+      "id": 6,
+      "parent_id": 5,
+      "return_value": {
+        "class": "Promise<String>",
+        "value": "Promise { 'location.coordinates_2dsphere' }",
+        "object_id": 6
+      },
+      "elapsed": 0.21101258299950132
+    }
+  ],
+  "version": "1.12",
+  "metadata": {
+    "client": {
+      "name": "appmap-node",
+      "version": "2.21.1",
+      "url": "https://github.com/getappmap/appmap-node"
+    },
+    "language": {
+      "name": "javascript",
+      "engine": "Node.js",
+      "version": "v18.20.2"
+    },
+    "app": "aggregationpipeline",
+    "recorder": {
+      "type": "process",
+      "name": "process"
+    },
+    "name": "2024-05-18T08:27:56.564Z"
+  },
+  "classMap": [
+    {
+      "name": "aggregationpipeline",
+      "type": "package",
+      "children": [
+        {
+          "name": "db",
+          "type": "package",
+          "children": [
+            {
+              "type": "class",
+              "name": "connect",
+              "children": [
+                {
+                  "type": "function",
+                  "name": "connectDB",
+                  "static": true,
+                  "location": "db/connect.js:4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "mongodb",
+          "type": "package",
+          "children": [
+            {
+              "type": "class",
+              "name": "universities",
+              "children": [
+                {
+                  "type": "function",
+                  "name": "createIndex",
+                  "static": false,
+                  "location": "mongodb/universities:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "class",
+          "name": "app",
+          "children": [
+            {
+              "type": "function",
+              "name": "start",
+              "static": true,
+              "location": "app.js:36"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
