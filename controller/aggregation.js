@@ -53,23 +53,23 @@ const displayDataWithExplain = async (req, res) => {
         const explanation = await University.aggregate(pipeline, { explain: "executionStats" });
         
 
-        // res.status(200).json({success: true, data: data, explanation: explanation});
+        res.status(200).json({success: true, data: data, explanation: explanation});
 
         // Read the HTML file containing the template
-        fs.readFile('./explain.html', 'utf8', (err, htmlContent) => {
-            if (err) {
-                console.error('Error reading HTML file:', err);
-                res.status(500).json({ success: false, message: "Internal server error" });
-            } else {
-                // Replace placeholders in the HTML template with actual data
-                const populatedHtml = htmlContent
-                    .replace('{{data}}', JSON.stringify(data))
-                    .replace('{{explanation}}', JSON.stringify(explanation));
+        // fs.readFile('./explain.html', 'utf8', (err, htmlContent) => {
+        //     if (err) {
+        //         console.error('Error reading HTML file:', err);
+        //         res.status(500).json({ success: false, message: "Internal server error" });
+        //     } else {
+        //         // Replace placeholders in the HTML template with actual data
+        //         const populatedHtml = htmlContent
+        //             .replace('{{data}}', JSON.stringify(data))
+        //             .replace('{{explanation}}', JSON.stringify(explanation));
                 
-                // Send the populated HTML content as the response
-                res.status(200).send(populatedHtml);
-            }
-        });
+        //         // Send the populated HTML content as the response
+        //         res.status(200).send(populatedHtml);
+        //     }
+        // });
 
     } catch(e){
         console.error(`error: ${e}`);
