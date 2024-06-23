@@ -1,11 +1,14 @@
 require('dotenv').config(); // Load environment variables from .env file
 // Import required modules
+const mongoose = require('mongoose')
 const express = require('express');
 
 // Import required modules
 const connectDB = require('./db/connect');
+const { connectToDatabase }  = require('./db/connectMongoDb');
 const dummyData = require('./routes/dummyData');
 const aggregationRoute = require('./routes/aggregationRoute');
+const storeRoute = require('./routes/store')
 
 // Create an Express application
 const app = express();
@@ -28,21 +31,32 @@ app.get('/', (req, res) => {
 });
 
 
+
+
 // routes
 app.use('/api/generator', dummyData);
 app.use('/api/aggregation', aggregationRoute);
-
+app.use('/api/store', storeRoute);
 
 const start = async () => {
 
   try{
       const connectingString = `${process.env.method}://${process.env.dbHost}:${process.env.password}@${process.env.projectName}.${process.env.instanceName}/${process.env.dbName}`;
       console.log(`CONNECTING TO DATABASE`);
-      await connectDB(connectingString);
-      app.listen(port, ()=>{
-          console.log(`SERVING AT ${port}`);
-          console.log(`APPLICATION STARTED`);
-      })
+      // await connectDB(connectingString);
+      // await connectMongoDB(process.env.MONGOURL);
+      const result = await connectToDatabase();
+      if(result.status){
+        console.log(result.message);
+          app.listen(port, ()=>{
+            console.log(`SERVING AT ${port}`);
+            console.log(`APPLICATION STARTED`);
+        })
+      }else{
+        console.log(result.message);
+        return;
+      }
+     
   }catch(err){
       console.log(`Error ${err}`)
   }

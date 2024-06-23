@@ -1,6 +1,7 @@
 const University = require('../model/university');
 
 const convertRequestBodyToPipeline = (reqBody) => {
+    console.log(reqBody);
     const pipeline = [];
 
     // Iterate over each key in the request body
